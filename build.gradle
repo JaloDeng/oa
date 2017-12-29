@@ -2,9 +2,14 @@ buildscript {
 	ext {
 		springBootVersion = '1.5.9.RELEASE'
 	}
+
+	ext['thymeleaf.version'] = '3.0.9.RELEASE'
+	ext['thymeleaf-layout-dialect.version'] = '2.2.2'
+
 	repositories {
 		jcenter()
 	}
+
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
@@ -24,6 +29,7 @@ repositories {
 
 
 dependencies {
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
