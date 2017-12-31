@@ -1,6 +1,5 @@
 package com.jalo.mis.oa.entity;
 
-import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,15 +16,10 @@ import org.hibernate.annotations.DynamicUpdate;
 @Entity
 @Table(name = "user")
 @DynamicUpdate
-public class UserEntity implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class UserEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String name;
