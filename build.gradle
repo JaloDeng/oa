@@ -21,17 +21,19 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'maven'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
 group = 'com.jalo.mis'
 version = '1.0.0'
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
+compileJava.options.encoding = 'UTF-8'
 
 repositories {
 	jcenter()
 }
-
 
 dependencies {
 	// MySQL Connector-J

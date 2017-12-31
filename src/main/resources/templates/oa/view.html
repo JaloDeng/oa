@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8"></meta>
+<title>View</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	var del = function() {
+			$.ajax({
+				url: "/user/" + $("#id").html(),
+				type: "DELETE"
+			});
+		};
+</script>
+</head>
+<body>
+<!-- <div th:replace="~{fragments/header :: header}"></div> -->
+<h3 th:text="${result.title}"></h3>
+
+<p><strong>Id:</strong><span id="id" th:text="${result.user.id}"></span></p>
+<p><strong>Name:</strong><span id="name" th:text="${result.user.name}"></span></p>
+<p><strong>Mail:</strong><span id="mail" th:text="${result.user.mail}"></span></p>
+
+<div>
+	<a th:href="@{'/user/update/' + ${result.user.id}}">修改</a>
+	<button onclick="del()">删除</button>
+	<a th:href="@{'/user/delete/' + ${result.user.id}}">用GET删除</a>
+</div>
+
+<!-- <div th:replace="~{fragments/footer :: footer}"></div> -->
+</body>
+</html>

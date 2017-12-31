@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Form</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	var po = function(){
+			var dataJson = {
+					'id': $("#id").val(), 
+					'name': $("#name").val(), 
+					'mail': $("#mail").val()
+				};
+			$.ajax({
+				url: "/user",
+				contentType: "application/json",
+				type: "POST",
+				data: JSON.stringify(dataJson)
+			});
+		}
+</script>
+</head>
+<body>
+<!-- <div th:replace="~{fragments/header :: header}"></div> -->
+<h3 th:text='${result.title}'></h3>
+<form action="/user/form" th:action="@{/user/form}" method="post" th:object="${result.user}">
+	<input type="hidden" name="id" id="id" th:value="*{id}" />
+	Name:<input type="text" name="name" id="name" th:value="*{name}" /><br/>
+	Mail:<input type="text" name="mail" id="mail" th:value="*{mail}" /><br/>
+	<input type="submit" value="submit" />
+</form>
+<button onclick="po()">点击</button>
+<!-- <div th:replace="~{fragments/footer :: footer}"></div> -->
+</body>
+</html>
