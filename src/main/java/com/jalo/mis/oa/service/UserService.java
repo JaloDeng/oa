@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.jalo.mis.oa.entity.UserEntity;
 import com.jalo.mis.oa.model.User;
@@ -27,16 +28,25 @@ public class UserService {
 		return userRepository.findOne(id);
 	}
 	
+	@Transactional
 	public UserEntity saveOrUpdate(User model) {
 		UserEntity entity = new UserEntity();
-
+		
 		if (model.getId() != null) {
 			entity.setId(model.getId());
 		}
 		entity.setName(model.getName());
 		entity.setMail(model.getMail());
 		
-		return userRepository.saveAndFlush(entity);
+		UserEntity result = null;
+		
+		try {
+			result = userRepository.saveAndFlush(entity);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 	
 	public Long delete(Long id) {
