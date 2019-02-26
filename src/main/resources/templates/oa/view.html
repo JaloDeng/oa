@@ -15,7 +15,7 @@
 </script>
 </head>
 <body>
-<!-- <div th:replace="~{fragments/header :: header}"></div> -->
+<div th:replace="~{fragments/header :: header}"></div>
 <h3 th:text="${result.title}"></h3>
 
 <p><strong>Id:</strong><span id="id" th:text="${result.user.id}"></span></p>
@@ -28,6 +28,6 @@
 	<a th:href="@{'/user/delete/' + ${result.user.id}}">用GET删除</a>
 </div>
 
-<!-- <div th:replace="~{fragments/footer :: footer}"></div> -->
+<div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>

@@ -13,6 +13,7 @@ buildscript {
 	// 仓库
 	repositories {
 		jcenter()
+		mavenLocal()
 	}
 
 	// 依赖
@@ -34,10 +35,12 @@ compileJava.options.encoding = 'UTF-8'
 
 repositories {
 	jcenter()
+	mavenLocal()
 }
 
 dependencies {
-	// MySQL Connector-J
+	compile 'top.jalo.commons:webservice:1.0.0-SNAPSHOT'
+
     compile 'mysql:mysql-connector-java'
     
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'

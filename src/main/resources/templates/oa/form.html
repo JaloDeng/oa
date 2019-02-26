@@ -22,7 +22,7 @@
 </script>
 </head>
 <body>
-<!-- <div th:replace="~{fragments/header :: header}"></div> -->
+<div th:replace="~{fragments/header :: header}"></div>
 <h3 th:text='${result.title}'></h3>
 <form action="/user/form" th:action="@{/user/form}" method="post" th:object="${result.user}">
 	<input type="hidden" name="id" id="id" th:value="*{id}" />
@@ -31,6 +31,6 @@
 	<input type="submit" value="submit" />
 </form>
 <button onclick="po()">点击</button>
-<!-- <div th:replace="~{fragments/footer :: footer}"></div> -->
+<div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>
