@@ -36,7 +36,7 @@ public class UserService {
 			entity.setId(model.getId());
 		}
 		entity.setName(model.getName());
-		entity.setMail(model.getMail());
+		entity.setEmail(model.getEmail());
 		
 		UserEntity result = null;
 		

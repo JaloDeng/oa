@@ -40,6 +40,7 @@ repositories {
 
 dependencies {
 	compile 'top.jalo.commons:webservice:1.0.0-SNAPSHOT'
+	compile 'top.jalo.commons:search:1.0.0-SNAPSHOT'
 
     compile 'mysql:mysql-connector-java'
     

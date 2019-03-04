@@ -23,7 +23,7 @@ public class UserEntity {
 	private Long id;
 	
 	private String name;
-	private String mail;
+	private String email;
 	
 	public Long getId() {
 		return id;
@@ -40,12 +40,13 @@ public class UserEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public String getMail() {
-		return mail;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
 }

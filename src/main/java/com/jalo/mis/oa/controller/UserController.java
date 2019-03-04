@@ -22,6 +22,8 @@ import com.jalo.mis.oa.entity.UserEntity;
 import com.jalo.mis.oa.model.User;
 import com.jalo.mis.oa.service.UserService;
 
+import top.jalo.commons.webservice.model.Result;
+
 /**
  * Controller : user
  * @author Jalo
@@ -36,6 +38,12 @@ public class UserController {
 	@GetMapping("/all")
 	public @ResponseBody List<UserEntity> userAll() {
 		return userService.findAll();
+	}
+	
+	@GetMapping("/getone/{id}")
+	public Result<UserEntity> getOne(@PathVariable Long id, Model model, HttpServletRequest request,
+			HttpServletResponse response) {
+		return new Result<UserEntity>(userService.findOne(id));
 	}
 	
 	@GetMapping
